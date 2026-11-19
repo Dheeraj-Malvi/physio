@@ -1,166 +1,175 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>RestoreMotion Physiotherapy & Rehab Clinic</title>
-  <script src="https://tailwindcss.com"></script>
-  <link rel="stylesheet" href="https://cloudflare.com" />
   <style>
-    @import url('https://googleapis.com');
-    body { font-family: 'Plus Jakarta Sans', sans-serif; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; color: #1e293b; background: #f8fafc; line-height: 1.6; }
+    a { text-decoration: none; color: inherit; }
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+
+    /* Top Bar */
+    .topbar { background: #115e59; color: #f0fdfa; font-size: 13px; padding: 8px 0; }
+    .topbar .container { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 6px; }
+
+    /* Navbar */
+    header { background: #ffffff; border-bottom: 1px solid #e2e8f0; position: sticky; top: 0; z-index: 50; }
+    .nav { display: flex; justify-content: space-between; align-items: center; padding: 14px 20px; max-width: 1100px; margin: 0 auto; }
+    .brand { display: flex; align-items: center; gap: 10px; }
+    .brand-icon { width: 40px; height: 40px; border-radius: 10px; background: #0d9488; color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 18px; }
+    .brand-name { font-weight: 700; font-size: 18px; color: #0f172a; display: block; line-height: 1.1; }
+    .brand-sub { font-size: 12px; color: #0d9488; font-weight: 600; }
+    .nav-links { display: none; gap: 24px; font-size: 14px; font-weight: 500; color: #475569; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 12px 22px; border-radius: 10px; font-weight: 600; font-size: 15px; cursor: pointer; border: none; transition: 0.2s; }
+    .btn-primary { background: #0d9488; color: #ffffff; box-shadow: 0 4px 12px rgba(13, 148, 136, 0.25); }
+    .btn-primary:hover { background: #0f766e; }
+    .btn-outline { background: #ffffff; color: #0f172a; border: 1px solid #cbd5e1; }
+    .btn-whatsapp { background: #16a34a; color: #ffffff; }
+    .btn-whatsapp:hover { background: #15803d; }
+
+    /* Hero */
+    .hero { background: linear-gradient(135deg, #f0fdfa 0%, #ffffff 55%, #ecfeff 100%); padding: 56px 0; border-bottom: 1px solid #e2e8f0; }
+    .hero-grid { display: grid; grid-template-columns: 1fr; gap: 36px; align-items: center; }
+    .badge { display: inline-block; background: #ccfbf1; color: #115e59; font-size: 12px; font-weight: 700; padding: 5px 12px; border-radius: 999px; margin-bottom: 16px; }
+    h1 { font-size: 32px; line-height: 1.2; color: #0f172a; margin-bottom: 16px; font-weight: 800; }
+    h1 span { color: #0d9488; }
+    .hero p { color: #475569; font-size: 16px; margin-bottom: 24px; }
+    .hero-btns { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 28px; }
+    .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; padding-top: 20px; border-top: 1px solid #e2e8f0; }
+    .stat-num { font-size: 22px; font-weight: 800; color: #0f172a; }
+    .stat-label { font-size: 12px; color: #64748b; }
+    .hero-card { background: #0f766e; color: #ffffff; border-radius: 20px; padding: 32px; box-shadow: 0 20px 35px rgba(15, 118, 110, 0.18); }
+    .hero-card h3 { font-size: 20px; margin-bottom: 12px; }
+    .hero-card ul { list-style: none; display: grid; gap: 10px; font-size: 14px; color: #ccfbf1; }
+    .hero-card li::before { content: "✓ "; font-weight: bold; color: #5eead4; }
+
+    /* Sections */
+    section { padding: 64px 0; }
+    .sec-head { text-align: center; max-width: 600px; margin: 0 auto 40px; }
+    .sec-tag { color: #0d9488; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
+    h2 { font-size: 28px; color: #0f172a; margin: 6px 0 10px; font-weight: 800; }
+    .sec-head p { color: #64748b; font-size: 15px; }
+
+    /* Cards Grid */
+    .grid-3 { display: grid; grid-template-columns: 1fr; gap: 20px; }
+    .card { background: #ffffff; border: 1px solid #e2e8f0; border-radius: 16px; padding: 24px; box-shadow: 0 2px 8px rgba(15, 23, 42, 0.03); }
+    .card-icon { width: 44px; height: 44px; border-radius: 12px; background: #f0fdfa; color: #0d9488; display: flex; align-items: center; justify-content: center; font-size: 20px; margin-bottom: 14px; }
+    .card h3 { font-size: 18px; color: #0f172a; margin-bottom: 8px; }
+    .card p { font-size: 14px; color: #475569; }
+    .card-dark { background: #115e59; color: #ffffff; border: none; }
+    .card-dark h3 { color: #ffffff; }
+    .card-dark p { color: #ccfbf1; margin-bottom: 18px; }
+
+    /* Doctor Section */
+    .about-sec { background: #ffffff; border-top: 1px solid #e2e8f0; border-bottom: 1px solid #e2e8f0; }
+    .about-box { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 20px; padding: 28px; max-width: 850px; margin: 0 auto; }
+    .doc-role { color: #0d9488; font-weight: 600; font-size: 14px; margin-bottom: 14px; }
+    .checklist { display: grid; grid-template-columns: 1fr; gap: 10px; margin-top: 18px; font-size: 14px; font-weight: 500; }
+    .checklist div::before { content: "✔ "; color: #0d9488; font-weight: bold; }
+
+    /* Booking Section */
+    .book-grid { display: grid; grid-template-columns: 1fr; gap: 24px; }
+    label { display: block; font-size: 12px; font-weight: 700; text-transform: uppercase; color: #475569; margin-bottom: 6px; }
+    select { width: 100%; padding: 12px; border-radius: 10px; border: 1px solid #cbd5e1; font-size: 15px; margin-bottom: 16px; background: #fff; }
+    .cal-box { background: #ffffff; border: 1px solid #e2e8f0; border-radius: 16px; overflow: hidden; }
+    .cal-header { background: #0f172a; color: #fff; padding: 14px 20px; font-size: 14px; font-weight: 600; display: flex; justify-content: space-between; }
+    iframe { width: 100%; height: 480px; border: 0; display: block; }
+
+    /* Reviews */
+    .reviews-sec { background: #f0fdfa; border-top: 1px solid #ccfbf1; }
+    .stars { color: #f59e0b; font-size: 16px; margin-bottom: 10px; }
+    .author { font-weight: 700; color: #0f172a; font-size: 14px; margin-top: 14px; }
+
+    /* Footer */
+    footer { background: #0f172a; color: #cbd5e1; padding: 48px 0 28px; font-size: 14px; }
+    footer h3, footer h4 { color: #ffffff; margin-bottom: 12px; }
+    .footer-grid { display: grid; grid-template-columns: 1fr; gap: 28px; padding-bottom: 32px; border-bottom: 1px solid #1e293b; }
+    .copy { text-align: center; font-size: 12px; color: #64748b; padding-top: 20px; }
+
+    /* Floating WhatsApp */
+    .wa-float { position: fixed; bottom: 20px; right: 20px; background: #16a34a; color: #fff; padding: 14px 18px; border-radius: 999px; font-weight: 700; font-size: 14px; box-shadow: 0 8px 20px rgba(22, 163, 74, 0.35); z-index: 99; }
+
+    /* Desktop Responsive */
+    @media (min-width: 768px) {
+      .nav-links { display: flex; }
+      h1 { font-size: 44px; }
+      .hero-grid { grid-template-columns: 1.2fr 0.8fr; }
+      .grid-3 { grid-template-columns: repeat(3, 1fr); }
+      .checklist { grid-template-columns: repeat(2, 1fr); }
+      .book-grid { grid-template-columns: 1fr 1.8fr; }
+      .footer-grid { grid-template-columns: repeat(3, 1fr); }
+    }
   </style>
 </head>
-<body class="bg-slate-50 text-slate-800 antialiased">
+<body>
 
-  <!-- Top Info Bar -->
-  <div class="bg-teal-900 text-teal-50 text-xs py-2 px-4">
-    <div class="max-w-6xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-1">
-      <span><i class="fa-regular fa-clock mr-1.5 text-teal-300"></i>Mon – Sat: 9:30 AM – 1:30 PM & 5:00 PM – 8:30 PM</span>
-      <span><i class="fa-solid fa-location-dot mr-1.5 text-teal-300"></i>2nd Floor, Lotus Plaza, Civil Lines</span>
+  <div class="topbar">
+    <div class="container">
+      <span>🕒 Mon – Sat: 9:30 AM – 1:30 PM & 5:00 PM – 8:30 PM</span>
+      <span>📍 2nd Floor, Lotus Plaza, Civil Lines</span>
     </div>
   </div>
 
-  <!-- Navigation -->
-  <header class="bg-white/95 backdrop-blur sticky top-0 z-40 border-b border-slate-200">
-    <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
-      <a href="#" class="flex items-center gap-2.5">
-        <div class="w-10 h-10 rounded-xl bg-teal-600 text-white flex items-center justify-center font-bold text-xl shadow-sm">
-          <i class="fa-solid fa-person-walking"></i>
-        </div>
+  <header>
+    <div class="nav">
+      <a href="#" class="brand">
+        <div class="brand-icon">RM</div>
         <div>
-          <span class="font-bold text-lg text-slate-900 block leading-none">RestoreMotion</span>
-          <span class="text-xs text-teal-600 font-medium">Physiotherapy & Rehab</span>
+          <span class="brand-name">RestoreMotion</span>
+          <span class="brand-sub">Physiotherapy & Rehab</span>
         </div>
       </a>
-
-      <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-600">
-        <a href="#services" class="hover:text-teal-600 transition">Treatments</a>
-        <a href="#doctor" class="hover:text-teal-600 transition">About Doctor</a>
-        <a href="#reviews" class="hover:text-teal-600 transition">Patient Stories</a>
-        <a href="#contact" class="hover:text-teal-600 transition">Location</a>
+      <nav class="nav-links">
+        <a href="#services">Treatments</a>
+        <a href="#doctor">About Doctor</a>
+        <a href="#reviews">Patient Stories</a>
+        <a href="#contact">Location</a>
       </nav>
-
-      <div class="flex items-center gap-3">
-        <a href="#book" class="bg-teal-600 hover:bg-teal-700 text-white text-sm font-semibold px-4 py-2.5 rounded-lg transition shadow-sm">
-          Book Visit
-        </a>
-      </div>
+      <a href="#book" class="btn btn-primary" style="padding: 9px 16px; font-size: 14px;">Book Visit</a>
     </div>
   </header>
 
-  <!-- Hero Section -->
-  <section class="bg-gradient-to-br from-teal-50 via-white to-cyan-50 py-16 md:py-24 px-4 border-b border-slate-200/70">
-    <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+  <section class="hero">
+    <div class="container hero-grid">
       <div>
-        <span class="inline-flex items-center gap-2 bg-teal-100 text-teal-800 text-xs font-semibold px-3 py-1 rounded-full mb-5">
-          <span class="w-2 h-2 rounded-full bg-teal-600"></span> Clinic & Home-Visit Physiotherapy
-        </span>
-        <h1 class="text-3xl md:text-5xl font-bold text-slate-900 leading-tight mb-5">
-          Move Freely Again Without <span class="text-teal-600">Pain or Stiffness.</span>
-        </h1>
-        <p class="text-slate-600 text-base md:text-lg mb-8 leading-relaxed">
-          Evidence-based physiotherapy, sports injury rehabilitation, and personalized pain management led by <strong>Dr. Aarav Mehta (MPT Ortho)</strong> with 10+ years of clinical experience.
-        </p>
-        <div class="flex flex-col sm:flex-row gap-3.5">
-          <a href="#book" class="bg-teal-600 hover:bg-teal-700 text-white font-semibold px-6 py-3.5 rounded-xl text-center transition shadow-md shadow-teal-600/20">
-            <i class="fa-regular fa-calendar-check mr-2"></i>Book Slot Online
-          </a>
-          <a href="https://wa.me." target="_blank" class="bg-white hover:bg-green-50 text-slate-800 border border-slate-300 font-semibold px-6 py-3.5 rounded-xl text-center transition flex items-center justify-center gap-2">
-            <i class="fa-brands fa-whatsapp text-green-600 text-lg"></i>Ask on WhatsApp
-          </a>
+        <span class="badge">● Clinic & Home-Visit Physiotherapy</span>
+        <h1>Move Freely Again Without <span>Pain or Stiffness.</span></h1>
+        <p>Evidence-based physiotherapy, sports injury rehabilitation, and personalized pain management led by <strong>Dr. Aarav Mehta (MPT Ortho)</strong> with 10+ years of clinical experience.</p>
+        <div class="hero-btns">
+          <a href="#book" class="btn btn-primary">📅 Book Slot Online</a>
+          <a href="https://wa.me." target="_blank" class="btn btn-outline">💬 Ask on WhatsApp</a>
         </div>
-        <div class="mt-8 pt-6 border-t border-slate-200/80 grid grid-cols-3 gap-4 text-center sm:text-left">
-          <div>
-            <p class="text-2xl font-bold text-slate-900">10+</p>
-            <p class="text-xs text-slate-500">Years Experience</p>
-          </div>
-          <div>
-            <p class="text-2xl font-bold text-slate-900">3,500+</p>
-            <p class="text-xs text-slate-500">Patients Treated</p>
-          </div>
-          <div>
-            <p class="text-2xl font-bold text-slate-900">4.9 ★</p>
-            <p class="text-xs text-slate-500">Google Rating</p>
-          </div>
+        <div class="stats">
+          <div><div class="stat-num">10+</div><div class="stat-label">Years Experience</div></div>
+          <div><div class="stat-num">3,500+</div><div class="stat-label">Patients Treated</div></div>
+          <div><div class="stat-num">4.9 ★</div><div class="stat-label">Google Rating</div></div>
         </div>
       </div>
 
-      <div class="relative">
-        <img src="https://unsplash.com" alt="Physiotherapy Treatment Session" class="rounded-2xl shadow-xl object-cover w-full h-[400px]" />
-        <div class="bg-white p-4 rounded-xl shadow-lg border border-slate-100 absolute -bottom-5 left-4 right-4 sm:right-auto sm:max-w-xs flex items-center gap-3">
-          <div class="w-11 h-11 rounded-full bg-teal-100 text-teal-700 flex items-center justify-center shrink-0">
-            <i class="fa-solid fa-house-medical text-lg"></i>
-          </div>
-          <div>
-            <p class="font-bold text-sm text-slate-900">Home Visits Available</p>
-            <p class="text-xs text-slate-500">For post-surgery & senior care</p>
-          </div>
-        </div>
+      <div class="hero-card">
+        <h3>Why Patients Choose Us</h3>
+        <ul>
+          <li>One-on-one 45-minute dedicated sessions</li>
+          <li>Root-cause manual therapy & rehab</li>
+          <li>Modern pain-relief electrotherapy</li>
+          <li>Home-visit care for seniors & post-surgery</li>
+          <li>Transparent pricing with zero hidden fees</li>
+        </ul>
       </div>
     </div>
   </section>
 
-  <!-- Treatments Section -->
-  <section id="services" class="py-20 px-4 max-w-6xl mx-auto">
-    <div class="text-center max-w-2xl mx-auto mb-14">
-      <span class="text-teal-600 font-semibold text-sm uppercase tracking-wider">Specialized Care</span>
-      <h2 class="text-3xl font-bold text-slate-900 mt-1 mb-3">Conditions & Treatments</h2>
-      <p class="text-slate-600 text-sm md:text-base">Targeted manual therapy, electrotherapy, and guided exercise programs tailored to your recovery goals.</p>
-    </div>
-
-    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-      <!-- Card 1 -->
-      <div class="bg-white p-6 rounded-2xl border border-slate-200/80 hover:border-teal-300 hover:shadow-md transition">
-        <div class="w-12 h-12 rounded-xl bg-teal-50 text-teal-600 flex items-center justify-center text-xl mb-4">
-          <i class="fa-solid fa-spine"></i>
-        </div>
-        <h3 class="font-bold text-lg text-slate-900 mb-2">Back, Neck & Sciatica</h3>
-        <p class="text-sm text-slate-600 leading-relaxed">Non-surgical relief for slip disc, cervical spondylosis, nerve compression, and posture-related spine pain.</p>
+  <section id="services">
+    <div class="container">
+      <div class="sec-head">
+        <span class="sec-tag">Specialized Care</span>
+        <h2>Conditions & Treatments</h2>
+        <p>Targeted manual therapy, electrotherapy, and guided exercise programs tailored to your recovery goals.</p>
       </div>
 
-      <!-- Card 2 -->
-      <div class="bg-white p-6 rounded-2xl border border-slate-200/80 hover:border-teal-300 hover:shadow-md transition">
-        <div class="w-12 h-12 rounded-xl bg-teal-50 text-teal-600 flex items-center justify-center text-xl mb-4">
-          <i class="fa-solid fa-person-running"></i>
-        </div>
-        <h3 class="font-bold text-lg text-slate-900 mb-2">Sports Injury Rehab</h3>
-        <p class="text-sm text-slate-600 leading-relaxed">Recovery protocols for ACL tears, ankle sprains, rotator cuff injuries, tennis elbow, and muscle strains.</p>
-      </div>
-
-      <!-- Card 3 -->
-      <div class="bg-white p-6 rounded-2xl border border-slate-200/80 hover:border-teal-300 hover:shadow-md transition">
-        <div class="w-12 h-12 rounded-xl bg-teal-50 text-teal-600 flex items-center justify-center text-xl mb-4">
-          <i class="fa-solid fa-crutch"></i>
-        </div>
-        <h3 class="font-bold text-lg text-slate-900 mb-2">Post-Surgery Recovery</h3>
-        <p class="text-sm text-slate-600 leading-relaxed">Structured mobility and strength restoration after knee replacement, hip replacement, and fracture surgeries.</p>
-      </div>
-
-      <!-- Card 4 -->
-      <div class="bg-white p-6 rounded-2xl border border-slate-200/80 hover:border-teal-300 hover:shadow-md transition">
-        <div class="w-12 h-12 rounded-xl bg-teal-50 text-teal-600 flex items-center justify-center text-xl mb-4">
-          <i class="fa-solid fa-bone"></i>
-        </div>
-        <h3 class="font-bold text-lg text-slate-900 mb-2">Knee & Joint Arthritis</h3>
-        <p class="text-sm text-slate-600 leading-relaxed">Pain reduction, joint mobilization, and muscle strengthening for osteoarthritis and frozen shoulder.</p>
-      </div>
-
-      <!-- Card 5 -->
-      <div class="bg-white p-6 rounded-2xl border border-slate-200/80 hover:border-teal-300 hover:shadow-md transition">
-        <div class="w-12 h-12 rounded-xl bg-teal-50 text-teal-600 flex items-center justify-center text-xl mb-4">
-          <i class="fa-solid fa-brain"></i>
-        </div>
-        <h3 class="font-bold text-lg text-slate-900 mb-2">Neuro & Stroke Rehab</h3>
-        <p class="text-sm text-slate-600 leading-relaxed">Balance training, gait re-education, and paralysis rehabilitation for stroke, Parkinson's, and nerve injuries.</p>
-      </div>
-
-      <!-- Card 6 -->
-      <div class="bg-teal-900 text-white p-6 rounded-2xl flex flex-col justify-between">
-        <div>
-          <div class="w-12 h-12 rounded-xl bg-teal-800 text-teal-300 flex items-center justify-center text-xl mb-4">
-            <i class="fa-solid fa-house-chimney-medical"></i>
-          </div>
-          <h3 class="font-bold text-lg mb-2">Home Visit Physiotherapy</h3>
-          <p class="text-sm text-teal-100 leading-relaxed mb-5">Can't travel to the clinic? We bring portable electrotherapy and hands-on rehab to your doorstep.</p>
-        </div>
+      <div class="grid-3">
+        <div class="card">
+          <div class="card-icon">🦴</div>
+          <h3>Back, Neck & Sciatica</h3>
