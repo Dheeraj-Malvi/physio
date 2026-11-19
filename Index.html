@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RestoreMotion Physiotherapy & Rehab Clinic</title>
+  <script src="https://tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cloudflare.com" />
+  <style>
+    @import url('https://googleapis.com');
+    body { font-family: 'Plus Jakarta Sans', sans-serif; }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased">
+
+  <!-- Top Info Bar -->
+  <div class="bg-teal-900 text-teal-50 text-xs py-2 px-4">
+    <div class="max-w-6xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-1">
+      <span><i class="fa-regular fa-clock mr-1.5 text-teal-300"></i>Mon – Sat: 9:30 AM – 1:30 PM & 5:00 PM – 8:30 PM</span>
+      <span><i class="fa-solid fa-location-dot mr-1.5 text-teal-300"></i>2nd Floor, Lotus Plaza, Civil Lines</span>
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <header class="bg-white/95 backdrop-blur sticky top-0 z-40 border-b border-slate-200">
+    <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
+      <a href="#" class="flex items-center gap-2.5">
+        <div class="w-10 h-10 rounded-xl bg-teal-600 text-white flex items-center justify-center font-bold text-xl shadow-sm">
+          <i class="fa-solid fa-person-walking"></i>
+        </div>
+        <div>
+          <span class="font-bold text-lg text-slate-900 block leading-none">RestoreMotion</span>
+          <span class="text-xs text-teal-600 font-medium">Physiotherapy & Rehab</span>
+        </div>
+      </a>
+
+      <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-600">
+        <a href="#services" class="hover:text-teal-600 transition">Treatments</a>
+        <a href="#doctor" class="hover:text-teal-600 transition">About Doctor</a>
+        <a href="#reviews" class="hover:text-teal-600 transition">Patient Stories</a>
+        <a href="#contact" class="hover:text-teal-600 transition">Location</a>
+      </nav>
+
+      <div class="flex items-center gap-3">
+        <a href="#book" class="bg-teal-600 hover:bg-teal-700 text-white text-sm font-semibold px-4 py-2.5 rounded-lg transition shadow-sm">
+          Book Visit
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="bg-gradient-to-br from-teal-50 via-white to-cyan-50 py-16 md:py-24 px-4 border-b border-slate-200/70">
+    <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+      <div>
+        <span class="inline-flex items-center gap-2 bg-teal-100 text-teal-800 text-xs font-semibold px-3 py-1 rounded-full mb-5">
+          <span class="w-2 h-2 rounded-full bg-teal-600"></span> Clinic & Home-Visit Physiotherapy
+        </span>
+        <h1 class="text-3xl md:text-5xl font-bold text-slate-900 leading-tight mb-5">
+          Move Freely Again Without <span class="text-teal-600">Pain or Stiffness.</span>
+        </h1>
+        <p class="text-slate-600 text-base md:text-lg mb-8 leading-relaxed">
+          Evidence-based physiotherapy, sports injury rehabilitation, and personalized pain management led by <strong>Dr. Aarav Mehta (MPT Ortho)</strong> with 10+ years of clinical experience.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-3.5">
+          <a href="#book" class="bg-teal-600 hover:bg-teal-700 text-white font-semibold px-6 py-3.5 rounded-xl text-center transition shadow-md shadow-teal-600/20">
+            <i class="fa-regular fa-calendar-check mr-2"></i>Book Slot Online
+          </a>
+          <a href="https://wa.me." target="_blank" class="bg-white hover:bg-green-50 text-slate-800 border border-slate-300 font-semibold px-6 py-3.5 rounded-xl text-center transition flex items-center justify-center gap-2">
+            <i class="fa-brands fa-whatsapp text-green-600 text-lg"></i>Ask on WhatsApp
+          </a>
+        </div>
+        <div class="mt-8 pt-6 border-t border-slate-200/80 grid grid-cols-3 gap-4 text-center sm:text-left">
+          <div>
+            <p class="text-2xl font-bold text-slate-900">10+</p>
+            <p class="text-xs text-slate-500">Years Experience</p>
+          </div>
+          <div>
+            <p class="text-2xl font-bold text-slate-900">3,500+</p>
+            <p class="text-xs text-slate-500">Patients Treated</p>
+          </div>
+          <div>
+            <p class="text-2xl font-bold text-slate-900">4.9 ★</p>
+            <p class="text-xs text-slate-500">Google Rating</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="relative">
+        <img src="https://unsplash.com" alt="Physiotherapy Treatment Session" class="rounded-2xl shadow-xl object-cover w-full h-[400px]" />
+        <div class="bg-white p-4 rounded-xl shadow-lg border border-slate-100 absolute -bottom-5 left-4 right-4 sm:right-auto sm:max-w-xs flex items-center gap-3">
+          <div class="w-11 h-11 rounded-full bg-teal-100 text-teal-700 flex items-center justify-center shrink-0">
+            <i class="fa-solid fa-house-medical text-lg"></i>
+          </div>
+          <div>
+            <p class="font-bold text-sm text-slate-900">Home Visits Available</p>
+            <p class="text-xs text-slate-500">For post-surgery & senior care</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Treatments Section -->
+  <section id="services" class="py-20 px-4 max-w-6xl mx-auto">
+    <div class="text-center max-w-2xl mx-auto mb-14">
+      <span class="text-teal-600 font-semibold text-sm uppercase tracking-wider">Specialized Care</span>
+      <h2 class="text-3xl font-bold text-slate-900 mt-1 mb-3">Conditions & Treatments</h2>
+      <p class="text-slate-600 text-sm md:text-base">Targeted manual therapy, electrotherapy, and guided exercise programs tailored to your recovery goals.</p>
+    </div>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- Card 1 -->
+      <div class="bg-white p-6 rounded-2xl border border-slate-200/80 hover:border-teal-300 hover:shadow-md transition">
+        <div class="w-12 h-12 rounded-xl bg-teal-50 text-teal-600 flex items-center justify-center text-xl mb-4">
+          <i class="fa-solid fa-spine"></i>
+        </div>
+        <h3 class="font-bold text-lg text-slate-900 mb-2">Back, Neck & Sciatica</h3>
+        <p class="text-sm text-slate-600 leading-relaxed">Non-surgical relief for slip disc, cervical spondylosis, nerve compression, and posture-related spine pain.</p>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="bg-white p-6 rounded-2xl border border-slate-200/80 hover:border-teal-300 hover:shadow-md transition">
+        <div class="w-12 h-12 rounded-xl bg-teal-50 text-teal-600 flex items-center justify-center text-xl mb-4">
+          <i class="fa-solid fa-person-running"></i>
+        </div>
+        <h3 class="font-bold text-lg text-slate-900 mb-2">Sports Injury Rehab</h3>
+        <p class="text-sm text-slate-600 leading-relaxed">Recovery protocols for ACL tears, ankle sprains, rotator cuff injuries, tennis elbow, and muscle strains.</p>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="bg-white p-6 rounded-2xl border border-slate-200/80 hover:border-teal-300 hover:shadow-md transition">
+        <div class="w-12 h-12 rounded-xl bg-teal-50 text-teal-600 flex items-center justify-center text-xl mb-4">
+          <i class="fa-solid fa-crutch"></i>
+        </div>
+        <h3 class="font-bold text-lg text-slate-900 mb-2">Post-Surgery Recovery</h3>
+        <p class="text-sm text-slate-600 leading-relaxed">Structured mobility and strength restoration after knee replacement, hip replacement, and fracture surgeries.</p>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="bg-white p-6 rounded-2xl border border-slate-200/80 hover:border-teal-300 hover:shadow-md transition">
+        <div class="w-12 h-12 rounded-xl bg-teal-50 text-teal-600 flex items-center justify-center text-xl mb-4">
+          <i class="fa-solid fa-bone"></i>
+        </div>
+        <h3 class="font-bold text-lg text-slate-900 mb-2">Knee & Joint Arthritis</h3>
+        <p class="text-sm text-slate-600 leading-relaxed">Pain reduction, joint mobilization, and muscle strengthening for osteoarthritis and frozen shoulder.</p>
+      </div>
+
+      <!-- Card 5 -->
+      <div class="bg-white p-6 rounded-2xl border border-slate-200/80 hover:border-teal-300 hover:shadow-md transition">
+        <div class="w-12 h-12 rounded-xl bg-teal-50 text-teal-600 flex items-center justify-center text-xl mb-4">
+          <i class="fa-solid fa-brain"></i>
+        </div>
+        <h3 class="font-bold text-lg text-slate-900 mb-2">Neuro & Stroke Rehab</h3>
+        <p class="text-sm text-slate-600 leading-relaxed">Balance training, gait re-education, and paralysis rehabilitation for stroke, Parkinson's, and nerve injuries.</p>
+      </div>
+
+      <!-- Card 6 -->
+      <div class="bg-teal-900 text-white p-6 rounded-2xl flex flex-col justify-between">
+        <div>
+          <div class="w-12 h-12 rounded-xl bg-teal-800 text-teal-300 flex items-center justify-center text-xl mb-4">
+            <i class="fa-solid fa-house-chimney-medical"></i>
+          </div>
+          <h3 class="font-bold text-lg mb-2">Home Visit Physiotherapy</h3>
+          <p class="text-sm text-teal-100 leading-relaxed mb-5">Can't travel to the clinic? We bring portable electrotherapy and hands-on rehab to your doorstep.</p>
+        </div>
